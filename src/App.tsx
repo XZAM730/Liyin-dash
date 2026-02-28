@@ -125,7 +125,7 @@ const Home = ({ setPage }: { setPage: (p: Page) => void }) => (
         animate={{ opacity: 1, scale: 1 }}
         className="mb-8 p-3 rounded-2xl bg-accent/5"
       >
-        <Sparkles className="text-accent" size={24} />
+        <Palette className="text-accent" size={24} />
       </motion.div>
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
