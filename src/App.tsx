@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Twitter, Linkedin, Youtube, Github, Mail, MessageCircle, ExternalLink, ChevronRight, ChevronLeft, CreditCard, Info, CheckCircle2, ArrowRight, Star, Sparkles, Palette, Layers } from 'lucide-react';
+import { Instagram, MessageCircle, ExternalLink, CreditCard, Info, CheckCircle2, ArrowRight, Star, Palette, Layers, BookOpen, User, Shirt } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 // --- Types ---
@@ -23,32 +23,32 @@ interface PriceItem {
 
 // --- Constants ---
 const PORTFOLIO_ITEMS: PortfolioItem[] = [
-  { id: 1, title: "Celestial Reverie", category: "Digital Illustration", image: "https://picsum.photos/seed/liyin1/1200/800", description: "An exploration of cosmic themes and ethereal lighting." },
-  { id: 2, title: "Minimalist Brand Identity", category: "Graphic Design", image: "https://picsum.photos/seed/liyin2/1200/800", description: "Clean, modern branding for a tech startup." },
-  { id: 3, title: "The Wanderer", category: "Character Design", image: "https://picsum.photos/seed/liyin3/1200/800", description: "Detailed character concept for a fantasy RPG." },
-  { id: 4, title: "Urban Serenity", category: "Photography", image: "https://picsum.photos/seed/liyin4/1200/800", description: "Capturing the quiet moments in a bustling city." },
-  { id: 5, title: "Flowing Motion", category: "Abstract Art", image: "https://picsum.photos/seed/liyin5/1200/800", description: "A study of movement and color harmony." },
+  { id: 1, title: "L2D Model Concept", category: "L2D Illustrator", image: "https://picsum.photos/seed/l2d/1200/800", description: "Detailed layers and parts for Live2D rigging." },
+  { id: 2, title: "Fanart Collection", category: "Fanart", image: "https://picsum.photos/seed/fanart/1200/800", description: "Vibrant illustrations of beloved characters." },
+  { id: 3, title: "Wattpad Cover Design", category: "Cover Wattpad", image: "https://picsum.photos/seed/wattpad/1200/800", description: "Eye-catching covers for digital novels." },
+  { id: 4, title: "Comic Anthology", category: "Komik", image: "https://picsum.photos/seed/comic/1200/800", description: "Sequential storytelling and panel design." },
+  { id: 5, title: "Streetwear Concept", category: "Clothing Design", image: "https://picsum.photos/seed/clothing/1200/800", description: "Modern apparel and graphic tee designs." },
 ];
 
 const PRICES: PriceItem[] = [
   {
-    name: "Essential Sketch",
-    priceIdr: "Rp 250.000",
-    priceUsd: "$20",
-    features: ["High-res Lineart", "1 Character", "Personal Use", "2 Revisions", "7 Days Delivery"]
+    name: "Standard Fanart / Cover",
+    priceIdr: "Rp 350.000",
+    priceUsd: "$25",
+    features: ["Full Color Illustration", "Wattpad/Book Cover Size", "Personal Use", "3 Revisions", "10 Days Delivery"]
   },
   {
-    name: "Premium Illustration",
-    priceIdr: "Rp 750.000",
-    priceUsd: "$50",
-    features: ["Full Color & Lighting", "Detailed Background", "Commercial License", "5 Revisions", "14 Days Delivery"],
+    name: "L2D Model / Comic",
+    priceIdr: "Rp 1.500.000",
+    priceUsd: "$100",
+    features: ["Ready-to-Rig Layers", "Character Sheet", "Commercial License", "5 Revisions", "21 Days Delivery"],
     popular: true
   },
   {
-    name: "Studio Branding",
-    priceIdr: "Rp 2.500.000",
-    priceUsd: "$175",
-    features: ["Logo & Brand Kit", "Social Media Assets", "Source Files (AI/PSD)", "Unlimited Revisions", "30 Days Delivery"]
+    name: "Clothing & Graphic Kit",
+    priceIdr: "Rp 850.000",
+    priceUsd: "$60",
+    features: ["Apparel Design", "Tech Pack Included", "Source Files (AI/PSD)", "Unlimited Revisions", "14 Days Delivery"]
   }
 ];
 
@@ -57,7 +57,7 @@ const PRICES: PriceItem[] = [
 const Navbar = ({ currentPage, setPage }: { currentPage: Page, setPage: (p: Page) => void }) => (
   <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-8">
     <div className="glass px-8 py-4 rounded-full flex items-center gap-10 shadow-lg shadow-black/5">
-      <div className="font-display font-bold text-xl tracking-tighter mr-4">LIYIN IEA</div>
+      <div className="font-display font-bold text-xl tracking-tighter mr-4">F. DHIRA WINDARI LI YIN</div>
       <div className="h-4 w-[1px] bg-border" />
       {(['home', 'about', 'order'] as Page[]).map((page) => (
         <button
@@ -130,9 +130,9 @@ const Home = ({ setPage }: { setPage: (p: Page) => void }) => (
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-7xl md:text-9xl font-display font-bold tracking-tighter mb-8 leading-[0.9]"
+        className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter mb-8 leading-[0.9]"
       >
-        Liyin <span className="italic font-serif font-normal">IEA.</span>
+        F. Dhira windari <span className="italic font-serif font-normal">Li Yin.</span>
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 30 }}
@@ -140,7 +140,7 @@ const Home = ({ setPage }: { setPage: (p: Page) => void }) => (
         transition={{ delay: 0.1 }}
         className="text-ink-muted max-w-2xl text-xl md:text-2xl font-serif italic mb-12 text-balance"
       >
-        "Transforming abstract visions into timeless digital masterpieces with a touch of ethereal elegance."
+        "Illustrator L2D, Fanart, Wattpad Covers, Comics, and Clothing Designer."
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -184,8 +184,8 @@ const About = () => (
         <div className="relative">
           <div className="aspect-[3/4] rounded-[40px] overflow-hidden card-shadow p-3 bg-white">
             <img
-              src="https://picsum.photos/seed/liyin_portrait/800/1000"
-              alt="Liyin IEA"
+              src="https://picsum.photos/seed/artist_dhira/800/1000"
+              alt="F. Dhira windari Li Yin"
               className="w-full h-full object-cover rounded-[32px]"
               referrerPolicy="no-referrer"
             />
@@ -201,20 +201,20 @@ const About = () => (
       
       <div className="lg:col-span-7">
         <span className="text-accent text-xs uppercase tracking-[0.4em] font-bold mb-6 block">The Story Behind the Art</span>
-        <h2 className="text-6xl font-display font-bold mb-10 leading-tight">Meet Liyin, the soul behind <span className="italic font-serif font-normal">IEA.</span></h2>
+        <h2 className="text-6xl font-display font-bold mb-10 leading-tight">Meet F. Dhira windari <span className="italic font-serif font-normal">Li Yin.</span></h2>
         
         <div className="space-y-8 text-lg text-ink-muted leading-relaxed font-serif italic">
           <p>
-            Liyin IEA is more than just a digital studio; it is a manifestation of a lifelong journey through the realms of visual storytelling and emotional resonance. Based in the intersection of traditional artistry and modern technology, Liyin has spent nearly a decade refining a style that is uniquely ethereal, minimalist, and profoundly human.
+            F. Dhira windari Li Yin is a versatile creative force specializing in the intersection of digital illustration and functional design. With a deep passion for storytelling, she brings characters to life through L2D illustration and captures the essence of narratives in Wattpad covers and comics.
           </p>
           <p>
-            The name "IEA" stands for <span className="text-accent font-sans not-italic font-semibold">Imagination, Elegance, and Authenticity</span>—the three pillars that support every stroke and pixel. Liyin believes that art should not just be seen, but felt. Her work often explores the delicate balance between light and shadow, the tangible and the dreamlike.
+            Her artistic journey is driven by a commitment to <span className="text-accent font-sans not-italic font-semibold">Imagination, Elegance, and Authenticity</span>. Whether she is crafting intricate fanart or designing modern apparel as a clothing designer, her work consistently reflects a signature touch of sophistication and detail.
           </p>
           <p>
-            With a background in Fine Arts and a deep-seated love for contemporary design, Liyin has collaborated with international brands, indie game developers, and private collectors worldwide. Her versatility allows her to transition seamlessly from intricate character illustrations to high-concept branding, always maintaining a signature touch of sophistication.
+            With years of experience collaborating with authors, independent creators, and fashion enthusiasts, Dhira has developed a versatile style that balances the dreamlike quality of digital art with the practical requirements of graphic and clothing design.
           </p>
           <p>
-            "My goal is to create visuals that serve as a sanctuary for the mind," Liyin says. "In a world that is often loud and chaotic, I strive to find the quiet beauty that exists in the details."
+            "My goal is to translate abstract visions into tangible masterpieces," she says. "I believe that every project, from a single fanart piece to a full clothing line, deserves a unique soul and a meticulous eye for detail."
           </p>
         </div>
 
@@ -222,27 +222,26 @@ const About = () => (
           <div>
             <h4 className="text-xs uppercase tracking-[0.2em] font-bold mb-4 text-accent">Expertise</h4>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2"><Palette size={14} /> Digital Illustration</li>
-              <li className="flex items-center gap-2"><Layers size={14} /> Brand Identity</li>
-              <li className="flex items-center gap-2"><Star size={14} /> Character Concept</li>
+              <li className="flex items-center gap-2"><User size={14} /> L2D Illustrator</li>
+              <li className="flex items-center gap-2"><BookOpen size={14} /> Comic & Cover Art</li>
+              <li className="flex items-center gap-2"><Shirt size={14} /> Clothing Design</li>
+              <li className="flex items-center gap-2"><Palette size={14} /> Fanart & Graphic Design</li>
             </ul>
           </div>
           <div>
             <h4 className="text-xs uppercase tracking-[0.2em] font-bold mb-4 text-accent">Philosophy</h4>
-            <p className="text-sm italic">"Less is more, but detail is everything."</p>
+            <p className="text-sm italic">"Art is the bridge between imagination and reality."</p>
           </div>
         </div>
       </div>
     </div>
 
     <div className="glass rounded-[40px] p-16 text-center">
-      <h3 className="text-3xl font-serif italic mb-12">Let's connect in the digital realm</h3>
+      <h3 className="text-3xl font-serif italic mb-12">Connect with me</h3>
       <div className="flex flex-wrap justify-center gap-12">
         {[
           { icon: Instagram, label: "Instagram", link: "#" },
-          { icon: Twitter, label: "Twitter", link: "#" },
-          { icon: Linkedin, label: "LinkedIn", link: "#" },
-          { icon: Mail, label: "Email", link: "mailto:hello@liyiniea.com" },
+          { icon: MessageCircle, label: "WhatsApp", link: "https://wa.me/6285723353753" },
         ].map((social, i) => (
           <a
             key={i}
@@ -270,7 +269,7 @@ const Order = () => (
     <div className="text-center mb-24">
       <span className="text-accent text-xs uppercase tracking-[0.4em] font-bold mb-4 block">Investment & Process</span>
       <h2 className="text-6xl font-display font-bold mb-6">Commission <span className="italic font-serif font-normal">Services</span></h2>
-      <p className="text-ink-muted max-w-xl mx-auto text-lg">Exquisite quality tailored to your unique vision. Select a tier to begin our collaboration.</p>
+      <p className="text-ink-muted max-w-xl mx-auto text-lg">Professional quality tailored to your unique vision. Select a tier to begin our collaboration.</p>
     </div>
 
     <div className="grid lg:grid-cols-3 gap-10 mb-32">
@@ -321,7 +320,7 @@ const Order = () => (
           </div>
           <div className="space-y-6">
             {[
-              { step: "01", title: "Inquiry", desc: "Share your vision and references via WhatsApp or Email." },
+              { step: "01", title: "Inquiry", desc: "Share your vision and references via WhatsApp or Instagram." },
               { step: "02", title: "Sketching", desc: "Receive initial concepts for feedback and direction." },
               { step: "03", title: "Refining", desc: "Detailed rendering and color application." },
               { step: "04", title: "Delivery", desc: "Final high-res files delivered in multiple formats." },
@@ -347,13 +346,13 @@ const Order = () => (
             <h3 className="text-2xl font-serif italic">Payment & Terms</h3>
           </div>
           <div className="space-y-6 text-sm text-ink-muted leading-relaxed">
-            <p>• 50% non-refundable deposit required to secure your slot.</p>
-            <p>• Payments accepted via Bank Transfer, PayPal, and Wise.</p>
+            <p>• 50% upfront payment required to secure your slot.</p>
+            <p>• Payments accepted via DANA, BCA, and ShopeePay.</p>
             <p>• Standard turnaround is 14-30 days depending on complexity.</p>
             <p>• Commercial rights are available for an additional fee.</p>
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
-            {['Visa', 'Mastercard', 'PayPal', 'Wise', 'Bank Transfer'].map((p, i) => (
+            {['DANA', 'BCA', 'ShopeePay'].map((p, i) => (
               <span key={i} className="px-4 py-2 rounded-lg bg-slate-50 text-[10px] uppercase font-bold tracking-widest border border-border">
                 {p}
               </span>
@@ -387,7 +386,7 @@ const FloatingWA = () => (
   >
     <MessageCircle size={32} />
     <span className="absolute right-24 bg-black text-white px-6 py-3 rounded-2xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 whitespace-nowrap pointer-events-none shadow-2xl">
-      Chat with Liyin
+      Chat with Dhira
     </span>
   </a>
 );
@@ -432,7 +431,7 @@ export default function App() {
 
       <footer className="py-20 px-6 border-t border-border bg-white">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="font-display font-bold text-2xl tracking-tighter">LIYIN IEA</div>
+          <div className="font-display font-bold text-2xl tracking-tighter">F. DHIRA WINDARI LI YIN</div>
           <div className="flex gap-10">
             {['home', 'about', 'order'].map((p) => (
               <button key={p} onClick={() => setPage(p as Page)} className="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-accent transition-colors">
@@ -441,7 +440,7 @@ export default function App() {
             ))}
           </div>
           <p className="text-[10px] uppercase tracking-[0.2em] text-ink-muted">
-            &copy; {new Date().getFullYear()} Liyin IEA. Crafted with Ethereal Soul.
+            &copy; {new Date().getFullYear()} F. Dhira windari Li Yin. Crafted with Ethereal Soul.
           </p>
         </div>
       </footer>
